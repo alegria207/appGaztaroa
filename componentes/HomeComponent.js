@@ -4,6 +4,7 @@ import { Card, normalize } from 'react-native-elements';
 import { EXCURSIONES } from '../comun/excursiones';
 import { CABECERAS } from '../comun/cabeceras';
 import { ACTIVIDADES } from '../comun/actividades';
+import { baseUrl } from '../comun/comun';
 
 function RenderItem(props) {
     
@@ -12,7 +13,7 @@ function RenderItem(props) {
         if (item != null) {
             return(
                 <Card>
-                    <Card.Image source={require('./imagenes/40Años.png')}></Card.Image>
+                    <Card.Image source={{uri: baseUrl + item.imagen}}></Card.Image>
                     <Card.Title  style={styles.titulo}>{item.nombre}</Card.Title>
                     <Text style={{margin: 20}}>
                         {item.descripcion}
@@ -56,6 +57,7 @@ const styles = StyleSheet.create({
       color: 'chocolate',
       position: 'absolute',
       fontSize: normalize(30),
-      alignSelf: 'center'
+      alignSelf: 'center',
+      marginTop: 50
     },
   });

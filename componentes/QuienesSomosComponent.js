@@ -4,6 +4,7 @@ import { Card } from 'react-native-elements';
 import { ACTIVIDADES } from '../comun/actividades';
 import { ListItem, Avatar } from 'react-native-elements';
 import { SafeAreaView, FlatList } from 'react-native';
+import { baseUrl } from '../comun/comun';
 
 function Historia(){
     return (
@@ -40,7 +41,7 @@ class QuienesSomos extends Component {
             return (
                 <ListItem
                     key={index} bottomDivider>
-                    <Avatar source={require('./imagenes/40Años.png')} />
+                    <Avatar source={{uri: baseUrl + item.imagen}} />
                     <ListItem.Content>
                         <ListItem.Title>{item.nombre}</ListItem.Title>
                         <ListItem.Subtitle>{item.descripcion}</ListItem.Subtitle>
