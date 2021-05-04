@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
-import { Text, ScrollView, View, StyleSheet } from 'react-native';
-import { Card, normalize } from 'react-native-elements';
+import { StyleSheet, Text, ScrollView, View } from 'react-native';
+import { Card } from 'react-native-elements';
 import { baseUrl } from '../comun/comun';
 import { connect } from 'react-redux';
 
-
 const mapStateToProps = state => {
     return {
-        excursiones: state.excursiones, 
-        cabeceras: state.cabeceras,
-        actividades: state.actividades,
+      excursiones: state.excursiones,
+      cabeceras: state.cabeceras,
+      actividades: state.actividades
     }
   }
-
 
 function RenderItem(props) {
     
@@ -21,8 +19,9 @@ function RenderItem(props) {
         if (item != null) {
             return(
                 <Card>
-                    <Card.Image source={{uri: baseUrl + item.imagen}}></Card.Image>
-                    <Card.Title  style={styles.titulo}>{item.nombre}</Card.Title>
+                    <Card.Image source = {{ uri: baseUrl + item.imagen }}>
+                        <Card.Title style={styles.cardTitleStyle}>{item.nombre}</Card.Title>
+                    </Card.Image>
                     <Text style={{margin: 20}}>
                         {item.descripcion}
                     </Text>
@@ -48,14 +47,15 @@ class Home extends Component {
     }
 }
 
-export default connect(mapStateToProps)(Home);
-
 const styles = StyleSheet.create({
-    titulo: {
+    cardTitleStyle: {
       color: 'chocolate',
-      position: 'absolute',
-      fontSize: normalize(30),
-      alignSelf: 'center',
-      marginTop: 50
+      fontWeight: 'bold',
+      fontSize: 30,
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginTop: 50,
     },
   });
+
+  export default connect(mapStateToProps)(Home);
