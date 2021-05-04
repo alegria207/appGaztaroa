@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import { Text, ScrollView, View } from 'react-native';
 import { Card } from 'react-native-elements';
-import { ACTIVIDADES } from '../comun/actividades';
 import { ListItem, Avatar } from 'react-native-elements';
 import { SafeAreaView, FlatList } from 'react-native';
 import { baseUrl } from '../comun/comun';
+import { connect } from 'react-redux';
+
+
+const mapStateToProps = state => {
+    return {
+      actividades: state.actividades
+    }
+  }
+
 
 function Historia(){
     return (
@@ -27,13 +35,6 @@ function Historia(){
 
 
 class QuienesSomos extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-          actividades: ACTIVIDADES
-        };
-    }
 
     render() {
 
@@ -59,7 +60,7 @@ class QuienesSomos extends Component {
                         <Card.Divider/>
  
                         <FlatList 
-                            data={this.state.actividades}
+                            data={this.props.actividades.actividades}
                             renderItem={renderActividadesItem}
                             keyExtractor={item => item.id.toString()}
                         />
@@ -71,4 +72,4 @@ class QuienesSomos extends Component {
     }
 }
 
-export default QuienesSomos;
+export default connect(mapStateToProps)(QuienesSomos);
