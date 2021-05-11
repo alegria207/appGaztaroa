@@ -5,6 +5,7 @@ import DetalleExcursion from './DetalleExcursionComponent';
 import Home from './HomeComponent';
 import QuienesSomos from './QuienesSomosComponent';
 import Contacto from './ContactoComponent';
+import PruebaEsfuerzo from './PruebaEsfuerzoComponent';
 import { View, StyleSheet, Image, Text } from 'react-native';
 import { NavigationContainer, DrawerActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -133,6 +134,29 @@ function ContactoNavegador({ navigation }) {
   );
 }
 
+function PruebaEsfuerzoNavegador({ navigation }) {
+  return (
+    <Stack.Navigator
+      initialRouteName="PruebaEsfuerzo"
+      headerMode="screen"
+      screenOptions={{
+        headerTintColor: '#fff',
+        headerStyle: { backgroundColor: colorGaztaroaOscuro },
+        headerTitleStyle: { color: '#fff' },
+        headerLeft: () => (<Icon name="menu" size={28} color= 'white' onPress={ () => navigation.dispatch(DrawerActions.toggleDrawer()) }/>),
+      }}
+    >
+      <Stack.Screen
+        name="PruebaEsfuerzo"
+        component={PruebaEsfuerzo}
+        options={{
+          title: 'Prueba de esfuerzo',
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
@@ -201,6 +225,18 @@ function DrawerNavegador() {
             drawerIcon: ({ tintColor}) => (
               <Icon
               name='address-card'
+              type='font-awesome'            
+              size={22}
+              color={tintColor}
+              />
+            )
+            }}
+        />
+        <Drawer.Screen name="PruebaEsfuerzo" component={PruebaEsfuerzoNavegador}
+          options={{
+            drawerIcon: ({ tintColor}) => (
+              <Icon
+              name='heartbeat'
               type='font-awesome'            
               size={22}
               color={tintColor}
