@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ListItem, Avatar } from 'react-native-elements';
-import { SafeAreaView, FlatList } from 'react-native';
+import { SafeAreaView, FlatList, View } from 'react-native';
 import { baseUrl } from '../comun/comun';
 import { connect } from 'react-redux';
 import { IndicadorActividad } from './IndicadorActividadComponent';

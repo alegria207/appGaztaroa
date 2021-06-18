@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, ScrollView } from 'react-native';
+import { Text, View, ScrollView } from 'react-native';
 import { Card } from 'react-native-elements';
 import { FlatList } from 'react-native';
 import { ListItem, Avatar } from 'react-native-elements';
