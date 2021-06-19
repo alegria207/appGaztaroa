@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView, FlatList, StyleSheet, Button, Modal, } from 'react-native';
 import { Card, Icon, Rating, Input } from 'react-native-elements';
-import { baseUrl } from '../comun/comun';
 import { connect } from 'react-redux';
 import {postFavorito, postComentario} from '../redux/ActionCreators'
 import { colorGaztaroaOscuro } from '../comun/comun';
@@ -21,7 +20,7 @@ function RenderExcursion(props) {
         if (excursion != null) {
             return(
             <Card>
-              <Card.Image source = {{ uri: baseUrl + excursion.imagen }}>
+              <Card.Image source = {{ uri: excursion.imagen }}>
                 <Card.Title style={styles.cardTitleStyle}>{excursion.nombre}</Card.Title>
               </Card.Image>
               <Text style={{margin: 20}}>

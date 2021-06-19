@@ -1,4 +1,5 @@
 import * as ActionTypes from './ActionTypes';
+import { baseUrl } from '../comun/comun';
 
 export const comentarios = (state = { errMess: null, comentarios: [] }, action) => {
   switch (action.type) {
