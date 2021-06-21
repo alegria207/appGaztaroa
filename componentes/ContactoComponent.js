@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
-import { Text} from 'react-native';
+import {  Button, Text} from 'react-native';
 import { Card } from 'react-native-elements';
+import * as MailComposer from 'expo-mail-composer';
+import { colorGaztaroaOscuro } from '../comun/comun';
+
 
 class Contacto extends Component {
-
+    enviarMail() {
+        MailComposer.composeAsync({
+            recipients: ['gaztaroa@gaztaroa.com'],
+            subject: '',
+            body: ''
+        });
+    }
     render() {
         return(
             <Card>
@@ -16,6 +25,11 @@ class Contacto extends Component {
                 Tel: +34 948 277151{'\n'}{'\n'}
                 Email: gaztaroa@gaztaroa.com
                 </Text>
+                <Button
+                    title='Enviar mail'
+                    buttonStyle={{ backgroundColor: colorGaztaroaOscuro }}
+                    onPress={this.enviarMail}
+                />
             </Card>        
             );
     }
